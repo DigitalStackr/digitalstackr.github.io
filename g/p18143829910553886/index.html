@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--
+  ATTRIBUTION TEST PAGE — Phase 1 only. Not wired into any CTA, post or link.
+  Reachable only by typing the URL directly.
+
+  WHAT THIS IS TESTING
+    Threads and Beacons send only the bare origin as HTTP referrer
+    ("https://l.threads.com/"), so a tracking parameter placed on a Gumroad
+    link is discarded before Gumroad ever sees it. Verified against 522 real
+    orders.
+
+    A page on a domain WE control can override that. `referrer=unsafe-url`
+    asks the browser to send this page's FULL url — path included — to the
+    next destination. If Gumroad records
+        https://digitalstackr.com/g/p18143829910553886
+    in the sale's `referrer` field, then the Threads post id survives the hop
+    and post-level attribution is achievable.
+
+  WHY A FREE PRODUCT
+    381 of 457 free downloads on this account already carry a real referrer,
+    so a $0 order proves the mechanism exactly as well as a paid one — with no
+    fee, no refund, and no chance of Gumroad blocking a self-purchase.
+-->
+<meta name="referrer" content="unsafe-url">
+<title>Redirecting…</title>
+<!-- Fallback for browsers that block scripted navigation. Fires after JS. -->
+<meta http-equiv="refresh" content="2;url=https://digitalstackr.gumroad.com/l/kfkrgp">
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;
+       background:#0C0B0A;color:#EDE7DF;
+       font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+  .c{text-align:center;padding:24px;max-width:34ch}
+  .d{width:34px;height:34px;margin:0 auto 18px;border:2px solid #2A2725;
+     border-top-color:#C9A961;border-radius:50%;animation:s .8s linear infinite}
+  @keyframes s{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.d{animation:none;border-top-color:#C9A961}}
+  a{color:#C9A961}
+  small{display:block;margin-top:20px;color:#6A625B;font-size:12px}
+</style>
+</head>
+<body>
+  <div class="c">
+    <div class="d"></div>
+    <p>Taking you to the download…</p>
+    <p><a href="https://digitalstackr.gumroad.com/l/kfkrgp">Continue manually</a></p>
+    <small>attribution test · p18143829910553886</small>
+  </div>
+<script>
+  // replace() rather than assign() so the redirect leaves no history entry —
+  // the back button returns to Threads, not into a redirect loop.
+  location.replace("https://digitalstackr.gumroad.com/l/kfkrgp");
+</script>
+</body>
+</html>
