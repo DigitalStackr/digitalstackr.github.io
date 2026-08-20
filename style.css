@@ -97,6 +97,6 @@ footer a { color: var(--muted); }
 footer .cols { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: space-between; }
 
 .brand-mark {
-  width: 32px; height: 32px; border-radius: 7px;
+  width: 44px; height: 44px; border-radius: 9px;
   object-fit: cover; display: block; flex: none;
 }
